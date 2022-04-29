@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 const useStoke = () => {
-  const [stokes, setStokes] = useState();
+  const [stokes, setStokes] = useState([]);
 
   useEffect(() => {
     fetch("https://stark-journey-45418.herokuapp.com/stoke")

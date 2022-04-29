@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { SiAddthis } from "react-icons/si";
+import toast from "react-hot-toast";
 
 const Inventory = () => {
   const { inventoryId } = useParams();
   const [stoke, setStoke] = useState({});
   const [addStoke, setAddStoke] = useState(0);
-  console.log(addStoke);
 
   const handelAddStoke = async (addStoke) => {
     const quantity = addStoke;
@@ -20,8 +20,8 @@ const Inventory = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => console.log(data));
-    console.log(newQuantity);
+      .then((data) => toast.success("Stoke updated successfully"));
+
     /* update stoke in ui */
     fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
       .then((res) => res.json())
@@ -49,8 +49,8 @@ const Inventory = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => console.log(data));
-    console.log(newQuantity);
+      .then((data) => toast.success("Stoke updated successfully"));
+
     /* update stoke in ui */
     fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
       .then((res) => res.json())
@@ -111,7 +111,7 @@ const Inventory = () => {
                     />
                     <button
                       onClick={() => handelAddStoke(addStoke)}
-                      className="btn inline-block px-4 py-2 bg-violet-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-violet-700 hover:shadow-lg focus:bg-violet-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-violet-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+                      className="btn inline-block px-4 py-2 bg-violet-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-violet-900 hover:shadow-lg focus:bg-violet-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-violet-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
                       type="button"
                       id="button-addon2"
                     >
@@ -133,6 +133,20 @@ const Inventory = () => {
           </div>
         </div>
       </div>
+      {/* manage button */}
+      <Link
+        to="/manageStoke"
+        className="relative px-5 mx-auto block w-fit py-3 mb-10 overflow-hidden font-medium text-white bg-violet-600 border border-violet-500 rounded-lg shadow-inner group"
+      >
+        <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-gray-600 group-hover:w-full ease"></span>
+        <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-gray-600 group-hover:w-full ease"></span>
+        <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+        <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+        <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
+        <span className="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
+          Manage Stoke
+        </span>
+      </Link>
     </div>
   );
 };

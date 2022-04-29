@@ -1,7 +1,9 @@
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home/Home";
 import Inventory from "./Pages/Inventory/Inventory";
+import ManageStokes from "./Pages/ManageStokes/ManageStokes";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 
@@ -16,8 +18,13 @@ function App() {
           path="/inventory/:inventoryId"
           element={<Inventory></Inventory>}
         ></Route>
+        <Route
+          path="/manageStoke"
+          element={<ManageStokes></ManageStokes>}
+        ></Route>
       </Routes>
       <Footer></Footer>
+      <Toaster></Toaster>
     </div>
   );
 }
