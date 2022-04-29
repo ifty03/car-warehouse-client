@@ -4,31 +4,59 @@ import { SiAddthis } from "react-icons/si";
 
 const Inventory = () => {
   const { inventoryId } = useParams();
-  const [stoke, setStoke] = useState();
-  const quantity = stoke?.quantity - 1;
-  const name = stoke?.name;
-  const description = stoke?.description;
-  const img = stoke?.img;
-  const price = stoke?.price;
-  const supplier = stoke?.supplier;
-  const updateStoke = { quantity, name, description, price, img, supplier };
-  //   const [deliveredCount, setDeliveredCount] = useState(0);
+  const [stoke, setStoke] = useState({});
+  const [addStoke, setAddStoke] = useState(0);
+  console.log(addStoke);
+
+  const handelAddStoke = async (addStoke) => {
+    const quantity = addStoke;
+    const newQuantity = { quantity };
+    await fetch(
+      `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`,
+      {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(newQuantity),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    console.log(newQuantity);
+    /* update stoke in ui */
+    fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
+      .then((res) => res.json())
+      .then((data) => setStoke(data));
+  };
+
+  /* load target data */
   useEffect(() => {
     fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setStoke(data));
   }, []);
-  const handelDelivered = () => {
-    const url = `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`;
-    fetch(url, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updateStoke),
-    })
+
+  const handelDelivered = async () => {
+    const quantity = stoke?.quantity - 1;
+    const newQuantity = { quantity };
+
+    /* update stoke in database*/
+    await fetch(
+      `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`,
+      {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(newQuantity),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
+    console.log(newQuantity);
+    /* update stoke in ui */
+    fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
+      .then((res) => res.json())
+      .then((data) => setStoke(data));
   };
-  //   console.log(stoke);
+
   return (
     <div className="bg-gray-50">
       <h2>This is inventory {inventoryId}</h2>
@@ -74,13 +102,15 @@ const Inventory = () => {
                 <div className="">
                   <div className="input-group relative flex flex-wrap items-stretch w-full ">
                     <input
-                      type="search"
+                      onBlur={(e) => setAddStoke(e.target.value)}
+                      type="number"
                       className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
                       placeholder="Add stoke"
                       aria-label="Search"
                       aria-describedby="button-addon2"
                     />
                     <button
+                      onClick={() => handelAddStoke(addStoke)}
                       className="btn inline-block px-4 py-2 bg-violet-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-violet-700 hover:shadow-lg focus:bg-violet-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-violet-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
                       type="button"
                       id="button-addon2"
