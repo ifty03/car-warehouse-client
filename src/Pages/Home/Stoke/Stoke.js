@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Stoke = ({ stoke }) => {
-  console.log(stoke);
   const { name, description, _id, supplier, quantity, price, img } = stoke;
   return (
     <div>
@@ -26,16 +25,17 @@ const Stoke = ({ stoke }) => {
             </span>
           </h2>
           <p className="mt-3">
-            <span className="font-semibold">Supplier:</span> {supplier}
+            <span className="font-semibold mr-2">Supplier:</span> {supplier}
           </p>
           <p>
-            <span className="font-semibold">Price:</span> {price}
+            <span className="font-semibold mr-2">Price:</span> {price}
           </p>
           <p>
-            <span className="font-semibold">Quantity:</span> {quantity}
+            <span className="font-semibold mr-2">Quantity:</span> {quantity}
           </p>
           <p>
-            <span className="font-semibold">description:</span> {description}
+            <span className="font-semibold mr-2">description:</span>{" "}
+            {description}
           </p>
           <Link
             to={`/inventory/${_id}`}
