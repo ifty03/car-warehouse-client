@@ -1,10 +1,12 @@
 import React from "react";
 import Banner from "./Banner/Banner";
+import Stokes from "./Stokes/Stokes";
 
 const Home = () => {
   return (
     <div className="bg-gray-50">
       <Banner></Banner>
+      <Stokes></Stokes>
     </div>
   );
 };
