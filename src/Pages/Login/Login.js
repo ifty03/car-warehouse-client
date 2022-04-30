@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../src/media/logo.png";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import toast from "react-hot-toast";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
-  const handelLogin = (e) => {
+  const [user] = useAuthState(auth);
+  const [error, setError] = useState("");
+
+  const handelLogin = async (e) => {
+    setError("");
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential?.user;
+        if (user) {
+          toast.success("login successfully");
+        }
+        e.target.reset();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        if (errorMessage == "Firebase: Error (auth/wrong-password).") {
+          setError("Wrong password please try agin");
+          toast.error("Wrong password please try agin");
+        } else if (errorMessage === "Firebase: Error (auth/user-not-found).") {
+          setError("user not-found create an account");
+          toast.error("user not-found create an account");
+        } else {
+          toast.error(errorMessage);
+        }
+      });
   };
   return (
     <div className="bg-gray-50 py-10">
@@ -74,6 +103,7 @@ const Login = () => {
               id="exampleInputPassword2"
               placeholder="Password"
             />
+            <p className="text-red-500">{error ? error : ""}</p>
           </div>
           <div className="flex justify-between items-center mb-6">
             <div className="form-group form-check">

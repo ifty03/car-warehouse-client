@@ -1,15 +1,45 @@
-import React from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import logo from "../../../src/media/logo.png";
+import auth from "../../firebase.init";
 
 const SignUp = () => {
-  const handelSignUp = (e) => {
+  const [user, setUser] = useState({});
+  const [error, setError] = useState("");
+  console.log(user);
+  console.log(error);
+  const handelSignUp = async (e) => {
+    setError("");
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
     const check = e.target.check.checked;
     console.log(email, password, check, confirmPassword);
+    if (check) {
+      if (password === confirmPassword) {
+        await createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            setUser(user);
+            e.target.reset();
+            toast.success("user created successfully");
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+            toast.error(errorMessage);
+          });
+      } else {
+        setError("Password are not matched");
+        toast.error("Password are not matched");
+      }
+    } else {
+      toast.error("please accept trams & condition");
+    }
   };
   return (
     <div className="bg-gray-50 py-10">
@@ -108,6 +138,7 @@ const SignUp = () => {
               />
             </div>
           </div>
+          <p className="text-red-500">{error ? error : ""}</p>
           <div className="flex justify-between items-center mb-6">
             <div className="form-group form-check">
               <input
@@ -145,7 +176,7 @@ const SignUp = () => {
       cursor-pointer
       ease-in-out"
             type="submit"
-            value="Sign In"
+            value="Sign Up"
           />
 
           <p className="text-gray-800 mt-6 text-center">

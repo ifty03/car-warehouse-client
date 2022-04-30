@@ -1,8 +1,13 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import auth from "../../../firebase.init";
 import logo from "../../../media/logo.png";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
   return (
     <div>
       <nav
@@ -115,12 +120,24 @@ const Header = () => {
 
           {/* <!-- Right elements --> */}
           <div className="flex items-center relative">
-            <Link
-              className="mx-3 py-1 px-3 bg-violet-600 text-white rounded-full hover:bg-violet-800"
-              to="/login"
-            >
-              Login
-            </Link>
+            {user ? (
+              <button
+                onClick={async () => {
+                  await signOut(auth);
+                  toast.success("log Out successfully");
+                }}
+                className="mx-3 py-1 px-3 bg-pink-600 text-white rounded-full hover:bg-pink-700"
+              >
+                Sign Out
+              </button>
+            ) : (
+              <Link
+                className="mx-3 py-1 px-3 bg-violet-600 text-white rounded-full hover:bg-violet-800"
+                to="/login"
+              >
+                Login
+              </Link>
+            )}
             {/*   <!-- Icon --> */}
             <div className="dropdown relative">
               <Link
