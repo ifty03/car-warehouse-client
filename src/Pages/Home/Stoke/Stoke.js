@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Stoke = ({ stoke }) => {
   const { name, description, _id, supplier, quantity, price, img } = stoke;
   return (
-    <div>
+    <div className="bg-gradient-to-tl to-violet-100 from-violet-50">
       <div className="card pb-5 bg-base-100 shadow-xl rounded-lg">
         <figure className="relative overflow-hidden">
           <img

@@ -63,6 +63,7 @@ const Header = () => {
           >
             <Link
               className="
+            
         flex
         items-center
         text-gray-900
@@ -114,6 +115,12 @@ const Header = () => {
 
           {/* <!-- Right elements --> */}
           <div className="flex items-center relative">
+            <Link
+              className="mx-3 py-1 px-3 bg-violet-600 text-white rounded-full hover:bg-violet-800"
+              to="/login"
+            >
+              Login
+            </Link>
             {/*   <!-- Icon --> */}
             <div className="dropdown relative">
               <Link

@@ -4,7 +4,7 @@ import Stokes from "./Stokes/Stokes";
 
 const Home = () => {
   return (
-    <div className="bg-gray-50">
+    <div className=" bg-gradient-to-r from-violet-100 to-violet-50">
       <Banner></Banner>
       <Stokes></Stokes>
     </div>
