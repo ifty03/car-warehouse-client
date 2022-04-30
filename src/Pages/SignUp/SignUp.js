@@ -22,6 +22,16 @@ const SignUp = () => {
       if (password === confirmPassword) {
         await createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
+            /* for jwt */
+            fetch("http://localhost:5000/login", {
+              method: "POST",
+              headers: { "Content-type": "application/json" },
+              body: JSON.stringify({ email }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                localStorage.setItem("accessToken", data.token);
+              });
             // Signed in
             const user = userCredential.user;
             setUser(user);

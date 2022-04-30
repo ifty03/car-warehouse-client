@@ -27,7 +27,7 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        if (errorMessage == "Firebase: Error (auth/wrong-password).") {
+        if (errorMessage === "Firebase: Error (auth/wrong-password).") {
           setError("Wrong password please try agin");
           toast.error("Wrong password please try agin");
         } else if (errorMessage === "Firebase: Error (auth/user-not-found).") {

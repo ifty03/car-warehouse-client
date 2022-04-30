@@ -1,8 +1,11 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import logo from "../../../src/media/logo.png";
+import auth from "../../firebase.init";
 
 const AddNewItem = () => {
+  const [user] = useAuthState(auth);
   const handelAddStock = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -13,10 +16,13 @@ const AddNewItem = () => {
     const img = e.target.img.value;
     const check = e.target.check.checked;
     const stock = { name, price, quantity, supplier, description, img };
-
-    fetch("https://stark-journey-45418.herokuapp.com/stoke", {
+    // https://stark-journey-45418.herokuapp.com/
+    fetch("http://localhost:5000/stoke", {
       method: "PUT",
-      headers: { "Content-type": "application/json" },
+      headers: {
+        authorization: `${user?.email} ${localStorage.getItem("accessToken")}`,
+        "Content-type": "application/json",
+      },
       body: JSON.stringify(stock),
     })
       .then((res) => res.json())
