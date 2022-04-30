@@ -1,13 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import toast from "react-hot-toast";
 
-const ManageStoke = ({ stoke }) => {
+const ManageStoke = ({ stoke, setUpdate, update }) => {
   const { name, description, _id, supplier, quantity, price, img } = stoke;
+  const handelDelete = (id) => {
+    const agree = window.confirm("Are you sure delete this stoke?");
+    if (agree) {
+      fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setUpdate(!update);
+          toast.success("Successfully deleted");
+        });
+    }
+    console.log("kichoi korlam na");
+  };
   return (
     <div>
       <div className="card pb-5 bg-base-100 shadow-xl rounded-lg">
-        <figure>
-          <img className="rounded-lg" src={img} alt="Shoes" />
+        <figure className="relative overflow-hidden">
+          <img
+            className="rounded-lg w-full hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
+            src={img}
+            alt="Shoes"
+          />
         </figure>
         <div className="card-body text-lg w-5/6 mx-auto mt-5">
           <div className=" flex justify-end">
@@ -37,13 +55,13 @@ const ManageStoke = ({ stoke }) => {
             <span className="font-semibold mr-2">description:</span>{" "}
             {description}
           </p>
-          <Link
-            to={`/inventory/${_id}`}
-            className="px-5 mt-4 py-2.5 relative rounded group overflow-hidden font-medium bg-violet-600 text-white w-fit ml-auto block"
+          <button
+            onClick={() => handelDelete(_id)}
+            className="px-5 mt-4 py-2.5 relative rounded group overflow-hidden font-medium bg-red-600 text-white w-fit ml-auto block"
           >
-            <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-black group-hover:h-full opacity-90"></span>
-            <span className="relative group-hover:text-white">Update</span>
-          </Link>
+            <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-violet-600 group-hover:h-full opacity-90"></span>
+            <span className="relative group-hover:text-white">Delete</span>
+          </button>
         </div>
       </div>
     </div>

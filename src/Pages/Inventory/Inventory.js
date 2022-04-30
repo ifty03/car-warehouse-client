@@ -59,7 +59,6 @@ const Inventory = () => {
 
   return (
     <div className="bg-gray-50">
-      <h2>This is inventory {inventoryId}</h2>
       <div className="p-5 mx-auto sm:p-10 md:p-16 bg-coolGray-100 text-coolGray-800">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img
@@ -144,7 +143,7 @@ const Inventory = () => {
         <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
         <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
         <span className="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
-          Manage Stoke
+          Manage inventory
         </span>
       </Link>
     </div>

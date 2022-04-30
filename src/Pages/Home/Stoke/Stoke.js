@@ -6,8 +6,12 @@ const Stoke = ({ stoke }) => {
   return (
     <div>
       <div className="card pb-5 bg-base-100 shadow-xl rounded-lg">
-        <figure>
-          <img className="rounded-lg" src={img} alt="Shoes" />
+        <figure className="relative overflow-hidden">
+          <img
+            className="rounded-lg hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
+            src={img}
+            alt="Shoes"
+          />
         </figure>
         <div className="card-body text-lg w-5/6 mx-auto mt-5">
           <div className=" flex justify-end">
