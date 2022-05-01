@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../../src/media/logo.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
@@ -9,7 +9,16 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 const Login = () => {
   const [user] = useAuthState(auth);
   const [error, setError] = useState("");
+  /* check valid user */
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  /* handel user login */
   const handelLogin = async (e) => {
     setError("");
     e.preventDefault();

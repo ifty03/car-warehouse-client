@@ -23,7 +23,7 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             /* for jwt */
-            fetch("http://localhost:5000/login", {
+            fetch("https://stark-journey-45418.herokuapp.com/login", {
               method: "POST",
               headers: { "Content-type": "application/json" },
               body: JSON.stringify({ email }),

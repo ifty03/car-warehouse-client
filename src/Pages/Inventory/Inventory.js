@@ -9,7 +9,7 @@ const Inventory = () => {
   const [addStoke, setAddStoke] = useState(0);
 
   const handelAddStoke = async (addStoke) => {
-    const quantity = addStoke;
+    const quantity = parseInt(addStoke) + parseInt(stoke?.quantity);
     const newQuantity = { quantity };
     await fetch(
       `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`,

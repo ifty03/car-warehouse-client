@@ -100,19 +100,41 @@ const Header = () => {
               <li className="nav-item p-2">
                 <Link
                   className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
-                  to="/"
+                  to="/blog"
                 >
-                  Team
+                  Blog
                 </Link>
               </li>
-              <li className="nav-item p-2">
-                <Link
-                  className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
-                  to="/"
-                >
-                  Projects
-                </Link>
-              </li>
+              {user && (
+                <li className="nav-item p-2">
+                  <Link
+                    className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                    to="/manageStoke"
+                  >
+                    Manage item
+                  </Link>
+                </li>
+              )}
+              {user && (
+                <li className="nav-item p-2">
+                  <Link
+                    className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                    to="/addNewItem"
+                  >
+                    Add item
+                  </Link>
+                </li>
+              )}
+              {user && (
+                <li className="nav-item p-2">
+                  <Link
+                    className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                    to="/myItem"
+                  >
+                    My item
+                  </Link>
+                </li>
+              )}
             </ul>
             {/* <!-- Left links --> */}
           </div>

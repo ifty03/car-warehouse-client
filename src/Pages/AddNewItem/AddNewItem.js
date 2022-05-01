@@ -13,11 +13,11 @@ const AddNewItem = () => {
     const quantity = +e.target.quantity.value;
     const supplier = e.target.supplier.value;
     const description = e.target.description.value;
+    const email = user.email;
     const img = e.target.img.value;
-    const check = e.target.check.checked;
-    const stock = { name, price, quantity, supplier, description, img };
-    // https://stark-journey-45418.herokuapp.com/
-    fetch("http://localhost:5000/stoke", {
+    const stock = { name, price, quantity, supplier, email, description, img };
+
+    fetch("https://stark-journey-45418.herokuapp.com/addStoke", {
       method: "PUT",
       headers: {
         authorization: `${user?.email} ${localStorage.getItem("accessToken")}`,
@@ -146,28 +146,7 @@ const AddNewItem = () => {
               />
             </div>
           </div>
-          <div className="form-group mb-6">
-            <input
-              type="email"
-              className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
-              name="email"
-              id="exampleInput125"
-              placeholder="Email address"
-            />
-          </div>
+
           <div className="form-group mb-6">
             <input
               type="text"
@@ -187,7 +166,7 @@ const AddNewItem = () => {
         focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
               name="img"
               id="exampleInput125"
-              placeholder="img url address"
+              placeholder="img url"
               required
             />
           </div>
