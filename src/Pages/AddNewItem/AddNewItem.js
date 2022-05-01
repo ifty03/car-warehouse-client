@@ -170,9 +170,9 @@ const AddNewItem = () => {
               required
             />
           </div>
-          <div class="form-group mb-6">
+          <div className="form-group mb-6">
             <textarea
-              class="
+              className="
         form-control
         block
         w-full
@@ -206,7 +206,7 @@ const AddNewItem = () => {
             />
             <label
               className="form-check-label inline-block text-gray-800"
-              for="exampleCheck25"
+              htmlFor="exampleCheck25"
             >
               I read all condition
             </label>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 import auth from "../../firebase.init";
@@ -8,9 +9,10 @@ const MyAddedItem = () => {
   const [user, loading] = useAuthState(auth);
   const [myStocks, setMyStocks] = useState([]);
   const [fevorite, setFevorite] = useState(0);
+  const [update, setUpdate] = useState(false);
   useEffect(() => {
     if (!loading) {
-      fetch("https://stark-journey-45418.herokuapp.com/myStock", {
+      fetch("http://localhost:5000/myStock", {
         headers: {
           authorization: `${user?.email} ${localStorage.getItem(
             "accessToken"
@@ -20,17 +22,24 @@ const MyAddedItem = () => {
         .then((res) => res.json())
         .then((data) => setMyStocks(data));
     }
-  }, [loading]);
+  }, [loading, update]);
 
-  /* remove a item from my Stock */
-  //   useEffect(()=>{
-  //       fetch("",)
-  //   },[])
+  //  remove a item from my Stock
+  const handelDeleteMyItem = (id) => {
+    fetch(`http://localhost:5000/myItem/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Item delete successfully");
+        setUpdate(!update);
+      });
+  };
 
   return (
     <div className="">
-      <div className="flex flex-col max-w-4xl mx-auto p-6 space-y-4 sm:p-10 bg-coolGray-50 text-coolGray-800">
-        <h2 className="text-xl font-semibold">Your Added Stock</h2>
+      <div className="flex flex-col max-w-4xl mx-auto md:p-10 lg:p-0 lg:pt-6 pt-6 space-y-4 bg-coolGray-50 text-coolGray-800">
+        <h2 className="text-xl ml-6 font-semibold">Your Added Stock</h2>
         <ul className="flex flex-col divide-y divide-coolGray-300">
           {myStocks.map((myStock) => (
             <li
@@ -65,6 +74,7 @@ const MyAddedItem = () => {
                   </div>
                   <div className="flex text-sm divide-x">
                     <button
+                      onClick={() => handelDeleteMyItem(myStock?._id)}
                       type="button"
                       className="flex items-center text-red-500 px-2 py-1 pl-0 space-x-1"
                     >
