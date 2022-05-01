@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import logo from "../../../src/media/logo.png";
 import auth from "../../firebase.init";
+import Social from "../Shared/Social/Social";
 
 const SignUp = () => {
   const [user, setUser] = useState({});
@@ -199,6 +200,16 @@ const SignUp = () => {
             </Link>
           </p>
         </form>
+        <div className="flex items-center py-2">
+          <div style={{ height: "1px" }} className="h-1 w-full bg-slate-600">
+            .
+          </div>
+          <p className="px-4">or</p>
+          <div style={{ height: "1px" }} className=" w-full bg-slate-600">
+            .
+          </div>
+        </div>
+        <Social></Social>
       </div>
     </div>
   );

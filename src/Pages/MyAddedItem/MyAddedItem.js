@@ -22,7 +22,7 @@ const MyAddedItem = () => {
         .then((res) => res.json())
         .then((data) => setMyStocks(data));
     }
-  }, [loading, update]);
+  }, [loading, update, user]);
 
   //  remove a item from my Stock
   const handelDeleteMyItem = (id) => {
