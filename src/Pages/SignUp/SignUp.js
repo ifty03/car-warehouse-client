@@ -1,16 +1,30 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import {
+  useAuthState,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../../src/media/logo.png";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
 import Social from "../Shared/Social/Social";
 
 const SignUp = () => {
+  const [currentUser, loading] = useAuthState(auth);
+  const [sendEmailVerification, sending] = useSendEmailVerification(auth);
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
-  console.log(user);
-  console.log(error);
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  if (loading || sending) {
+    return <Loading></Loading>;
+  }
+  if (currentUser) {
+    navigate(from, { replace: true });
+  }
   const handelSignUp = async (e) => {
     setError("");
     e.preventDefault();
@@ -24,7 +38,7 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             /* for jwt */
-            fetch("http://localhost:5000/login", {
+            fetch("https://stark-journey-45418.herokuapp.com/login", {
               method: "POST",
               headers: { "Content-type": "application/json" },
               body: JSON.stringify({ email }),
@@ -33,11 +47,12 @@ const SignUp = () => {
               .then((data) => {
                 localStorage.setItem("accessToken", data?.token);
               });
+            sendEmailVerification();
             // Signed in
             const user = userCredential.user;
             setUser(user);
             e.target.reset();
-            toast.success("user created successfully");
+            toast.success("Email verification send");
           })
           .catch((error) => {
             const errorMessage = error.message;

@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const MyAddedItem = () => {
@@ -12,7 +13,7 @@ const MyAddedItem = () => {
   const [update, setUpdate] = useState(false);
   useEffect(() => {
     if (!loading) {
-      fetch("http://localhost:5000/myStock", {
+      fetch("https://stark-journey-45418.herokuapp.com/myStock", {
         headers: {
           authorization: `${user?.email} ${localStorage.getItem(
             "accessToken"
@@ -26,7 +27,7 @@ const MyAddedItem = () => {
 
   //  remove a item from my Stock
   const handelDeleteMyItem = (id) => {
-    fetch(`http://localhost:5000/myItem/${id}`, {
+    fetch(`https://stark-journey-45418.herokuapp.com/myItem/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -111,26 +112,22 @@ const MyAddedItem = () => {
         </ul>
         <div className="space-y-1 text-right">
           <p>
-            Total amount:
-            <span className="font-semibold">357 €</span>
-          </p>
-          <p className="text-sm text-coolGray-600">
-            Not including taxes and shipping costs
+            Total Added Stock:
+            <span className="font-semibold">{myStocks.length}</span>
           </p>
         </div>
         <div className="flex justify-end space-x-4">
+          <Link
+            to="/home"
+            className="px-6 py-2 border rounded-md hover:bg-violet-600 hover:text-white border-violet-600"
+          >
+            Back <span className="sr-only sm:not-sr-only"> to Home</span>
+          </Link>
           <button
             type="button"
-            className="px-6 py-2 border rounded-md border-violet-600"
+            className="px-6 py-2 border rounded-md bg-violet-600 text-white border-violet-600"
           >
-            Back
-            <span className="sr-only sm:not-sr-only">to shop</span>
-          </button>
-          <button
-            type="button"
-            className="px-6 py-2 border rounded-md bg-violet-600 text-coolGray-50 border-violet-600"
-          >
-            <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
+            <span className="sr-only sm:not-sr-only">Add More </span> Item
           </button>
         </div>
       </div>

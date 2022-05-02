@@ -9,6 +9,8 @@ import Login from "./Pages/Login/Login";
 import ManageStokes from "./Pages/ManageStokes/ManageStokes";
 import MyAddedItem from "./Pages/MyAddedItem/MyAddedItem";
 import NotFound from "./Pages/NotFound/NotFound";
+import Notification from "./Pages/Notification/Notification";
+import Profile from "./Pages/Profile/Profile";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import SignUp from "./Pages/SignUp/SignUp";
@@ -44,13 +46,18 @@ function App() {
         <Route
           path="/myItem"
           element={
-            <RequireAuth>
-              <MyAddedItem></MyAddedItem>
-            </RequireAuth>
+            // <RequireAuth>
+            // </RequireAuth>
+            <MyAddedItem></MyAddedItem>
           }
         ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
+        <Route
+          path="/notification"
+          element={<Notification></Notification>}
+        ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

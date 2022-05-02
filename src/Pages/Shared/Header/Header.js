@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import auth from "../../../firebase.init";
 import logo from "../../../media/logo.png";
 
@@ -90,49 +90,69 @@ const Header = () => {
             {/* <!-- Left links --> */}
             <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
               <li className="nav-item p-2">
-                <Link
-                  className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                <NavLink
                   to="/home"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-rose-600 nav-link p-0 border-b-2 pb-2 border-b-rose-600"
+                      : "nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                  }
                 >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item p-2">
-                <Link
-                  className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                <NavLink
                   to="/blog"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-rose-600 nav-link p-0 border-b-2 pb-2 border-b-rose-600"
+                      : "nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                  }
                 >
                   Blog
-                </Link>
+                </NavLink>
               </li>
               {user && (
                 <li className="nav-item p-2">
-                  <Link
-                    className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                  <NavLink
                     to="/manageStoke"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-rose-600 nav-link p-0 border-b-2 pb-2 border-b-rose-600"
+                        : "nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                    }
                   >
-                    Manage item
-                  </Link>
+                    Manage Item
+                  </NavLink>
                 </li>
               )}
               {user && (
                 <li className="nav-item p-2">
-                  <Link
-                    className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                  <NavLink
                     to="/addNewItem"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-rose-600 nav-link p-0 border-b-2 pb-2 border-b-rose-600"
+                        : "nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                    }
                   >
-                    Add item
-                  </Link>
+                    Add Item
+                  </NavLink>
                 </li>
               )}
               {user && (
                 <li className="nav-item p-2">
-                  <Link
-                    className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                  <NavLink
                     to="/myItem"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-rose-600 nav-link p-0 border-b-2 pb-2 border-b-rose-600"
+                        : "nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
+                    }
                   >
-                    My item
-                  </Link>
+                    my Item
+                  </NavLink>
                 </li>
               )}
             </ul>
@@ -172,7 +192,7 @@ const Header = () => {
           hidden-arrow
           flex items-center
         "
-                to="/"
+                to="/notification"
                 id="dropdownMenuButton1"
                 role="button"
               >
@@ -198,7 +218,7 @@ const Header = () => {
             <div className="dropdown relative">
               <Link
                 className="dropdown-toggle flex items-center hidden-arrow"
-                to="/"
+                to="/profile"
                 id="dropdownMenuButton2"
                 role="button"
               >

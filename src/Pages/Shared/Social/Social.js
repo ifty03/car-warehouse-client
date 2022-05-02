@@ -10,11 +10,17 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const Social = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const email = user?.email;
-  console.log(email);
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   /* google provider */
   const [signInWithGoogle, googleUser, googleLoading] =
     useSignInWithGoogle(auth);
@@ -24,6 +30,13 @@ const Social = () => {
   /* github provider */
   const [signInWithGithub, githubUser, githubLoading] =
     useSignInWithGithub(auth);
+  /* when user login back home */
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="flex justify-center cursor-pointer">
       <BsFacebook
@@ -33,11 +46,12 @@ const Social = () => {
         }}
         className="text-2xl mx-3 text-blue-700 cursor-pointer"
       ></BsFacebook>
+
       <FcGoogle
         onClick={async () => {
           await signInWithGoogle();
           toast.success("login successfully");
-          fetch("http://localhost:5000/login", {
+          fetch("https://stark-journey-45418.herokuapp.com/login", {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({ email }),
