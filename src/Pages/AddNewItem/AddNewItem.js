@@ -17,7 +17,7 @@ const AddNewItem = () => {
     const img = e.target.img.value;
     const stock = { name, price, quantity, supplier, email, description, img };
 
-    fetch("https://stark-journey-45418.herokuapp.com/addStoke", {
+    fetch("https://car-warehouse-as-11.web.app/addStoke", {
       method: "PUT",
       headers: {
         authorization: `${user?.email} ${localStorage.getItem("accessToken")}`,

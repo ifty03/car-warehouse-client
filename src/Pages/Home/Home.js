@@ -1,4 +1,5 @@
 import React from "react";
+import MostActiceStock from "../MostActiveStock/MostActiceStock";
 import Review from "../Notification/Review/Review";
 import Banner from "./Banner/Banner";
 import Offer from "./Offer/Offer";
@@ -10,6 +11,7 @@ const Home = () => {
       <Banner></Banner>
       <Offer></Offer>
       <Stokes></Stokes>
+      <MostActiceStock></MostActiceStock>
       <Review></Review>
     </div>
   );
