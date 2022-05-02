@@ -6,14 +6,14 @@ const Notification = () => {
       {/* <!-- Success --> */}
 
       <div
-        class="flex items-center  justify-between gap-4 p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
+        className="flex items-center  justify-between gap-4 p-4 text-green-700 border rounded border-green-900/10 bg-green-50"
         role="alert"
       >
-        <div class="flex items-center gap-4">
-          <span class="p-2 text-white bg-green-600 rounded-full">
+        <div className="flex items-center gap-4">
+          <span className="p-2 text-white bg-green-600 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -28,19 +28,19 @@ const Notification = () => {
           </span>
 
           <p>
-            <strong class="text-sm font-medium"> Hooray! </strong>
+            <strong className="text-sm font-medium"> Hooray! </strong>
 
-            <span class="block text-xs opacity-90">
+            <span className="block text-xs opacity-90">
               This post has been published.
             </span>
           </p>
         </div>
 
-        <button class="opacity-90" type="button">
-          <span class="sr-only"> Close </span>
+        <button className="opacity-90" type="button">
+          <span className="sr-only"> Close </span>
 
           <svg
-            class="w-4 h-4"
+            className="w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -57,14 +57,14 @@ const Notification = () => {
       {/* <!-- Warning --> */}
 
       <div
-        class="flex items-center justify-between gap-4 p-4 border rounded text-amber-700 border-amber-900/10 bg-amber-50"
+        className="flex items-center justify-between gap-4 p-4 border rounded text-amber-700 border-amber-900/10 bg-amber-50"
         role="alert"
       >
-        <div class="flex items-center gap-4">
-          <span class="p-2 text-white rounded-full bg-amber-600">
+        <div className="flex items-center gap-4">
+          <span className="p-2 text-white rounded-full bg-amber-600">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -79,19 +79,19 @@ const Notification = () => {
           </span>
 
           <p>
-            <strong class="text-sm font-medium"> Careful! </strong>
+            <strong className="text-sm font-medium"> Careful! </strong>
 
-            <span class="block text-xs opacity-90">
+            <span className="block text-xs opacity-90">
               This post has been archived.
             </span>
           </p>
         </div>
 
-        <button class="opacity-90" type="button">
-          <span class="sr-only"> Close </span>
+        <button className="opacity-90" type="button">
+          <span className="sr-only"> Close </span>
 
           <svg
-            class="w-4 h-4"
+            className="w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -108,14 +108,14 @@ const Notification = () => {
       {/* <!-- Alert --> */}
 
       <div
-        class="flex items-center justify-between gap-4 p-4 text-red-700 border rounded border-red-900/10 bg-red-50"
+        className="flex items-center justify-between gap-4 p-4 text-red-700 border rounded border-red-900/10 bg-red-50"
         role="alert"
       >
-        <div class="flex items-center gap-4">
-          <span class="p-2 text-white bg-red-600 rounded-full">
+        <div className="flex items-center gap-4">
+          <span className="p-2 text-white bg-red-600 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -130,19 +130,19 @@ const Notification = () => {
           </span>
 
           <p>
-            <strong class="text-sm font-medium"> Uh-oh! </strong>
+            <strong className="text-sm font-medium"> Uh-oh! </strong>
 
-            <span class="block text-xs opacity-90">
+            <span className="block text-xs opacity-90">
               This post has been deleted.
             </span>
           </p>
         </div>
 
-        <button class="opacity-90" type="button">
-          <span class="sr-only"> Close </span>
+        <button className="opacity-90" type="button">
+          <span className="sr-only"> Close </span>
 
           <svg
-            class="w-4 h-4"
+            className="w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -159,14 +159,14 @@ const Notification = () => {
       {/* <!-- Info --> */}
 
       <div
-        class="flex items-center justify-between gap-4 p-4 border rounded text-sky-700 border-sky-900/10 bg-sky-50"
+        className="flex items-center justify-between gap-4 p-4 border rounded text-sky-700 border-sky-900/10 bg-sky-50"
         role="alert"
       >
-        <div class="flex items-center gap-4">
-          <span class="p-2 text-white rounded-full bg-sky-600">
+        <div className="flex items-center gap-4">
+          <span className="p-2 text-white rounded-full bg-sky-600">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -181,19 +181,19 @@ const Notification = () => {
           </span>
 
           <p>
-            <strong class="text-sm font-medium"> Info! </strong>
+            <strong className="text-sm font-medium"> Info! </strong>
 
-            <span class="block text-xs opacity-90">
+            <span className="block text-xs opacity-90">
               This post has been updated.
             </span>
           </p>
         </div>
 
-        <button class="opacity-90" type="button">
-          <span class="sr-only"> Close </span>
+        <button className="opacity-90" type="button">
+          <span className="sr-only"> Close </span>
 
           <svg
-            class="w-4 h-4"
+            className="w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"

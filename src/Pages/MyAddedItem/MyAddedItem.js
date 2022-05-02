@@ -27,14 +27,17 @@ const MyAddedItem = () => {
 
   //  remove a item from my Stock
   const handelDeleteMyItem = (id) => {
-    fetch(`https://stark-journey-45418.herokuapp.com/myItem/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Item delete successfully");
-        setUpdate(!update);
-      });
+    const agree = window.confirm("Are you sure delete this item");
+    if (agree) {
+      fetch(`https://stark-journey-45418.herokuapp.com/myItem/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("Item delete successfully");
+          setUpdate(!update);
+        });
+    }
   };
 
   return (

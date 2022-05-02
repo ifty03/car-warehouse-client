@@ -28,7 +28,7 @@ const Social = () => {
   const [signInWithFacebook, facebookUser, facebookLoading] =
     useSignInWithFacebook(auth);
   /* github provider */
-  const [signInWithGithub, githubUser, githubLoading] =
+  const [signInWithGithub, githubUser, githubLoading, gitErr] =
     useSignInWithGithub(auth);
   /* when user login back home */
   if (loading) {
@@ -36,6 +36,9 @@ const Social = () => {
   }
   if (user) {
     navigate(from, { replace: true });
+  }
+  if (gitErr) {
+    console.log(gitErr);
   }
   return (
     <div className="flex justify-center cursor-pointer">
@@ -59,7 +62,13 @@ const Social = () => {
         }}
         className="text-2xl mx-3"
       ></FcGoogle>
-      <AiFillGithub className="text-2xl mx-3 cursor-pointer"></AiFillGithub>
+      <AiFillGithub
+        onClick={async () => {
+          await signInWithGithub();
+          toast.success("user created successfully");
+        }}
+        className="text-2xl mx-3 cursor-pointer"
+      ></AiFillGithub>
     </div>
   );
 };

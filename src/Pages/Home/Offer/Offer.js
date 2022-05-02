@@ -1,4 +1,5 @@
 import React from "react";
+import offerImg from "../../../media/offer .png";
 
 const Offer = () => {
   return (
@@ -31,7 +32,7 @@ const Offer = () => {
           <img
             alt=""
             class="absolute inset-0 object-cover w-full h-full"
-            src="https://www.hyperui.dev/photos/shoe-1.jpeg"
+            src={offerImg}
           />
         </div>
       </section>
