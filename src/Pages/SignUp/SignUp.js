@@ -38,7 +38,7 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             /* for jwt */
-            fetch("https://car-warehouse-as-11.web.app/login", {
+            fetch("https://stark-journey-45418.herokuapp.com/login", {
               method: "POST",
               headers: { "Content-type": "application/json" },
               body: JSON.stringify({ email }),

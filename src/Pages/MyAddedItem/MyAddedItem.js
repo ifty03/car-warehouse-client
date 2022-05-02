@@ -13,7 +13,7 @@ const MyAddedItem = () => {
   const [update, setUpdate] = useState(false);
   useEffect(() => {
     if (!loading) {
-      fetch("https://car-warehouse-as-11.web.app/myStock", {
+      fetch("https://stark-journey-45418.herokuapp.com/myStock", {
         headers: {
           authorization: `${user?.email} ${localStorage.getItem(
             "accessToken"
@@ -29,7 +29,7 @@ const MyAddedItem = () => {
   const handelDeleteMyItem = (id) => {
     const agree = window.confirm("Are you sure delete this item");
     if (agree) {
-      fetch(`https://car-warehouse-as-11.web.app/myItem/${id}`, {
+      fetch(`https://stark-journey-45418.herokuapp.com/myItem/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

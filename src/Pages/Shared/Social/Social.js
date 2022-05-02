@@ -54,7 +54,7 @@ const Social = () => {
         onClick={async () => {
           await signInWithGoogle();
           toast.success("login successfully");
-          fetch("https://car-warehouse-as-11.web.app/login", {
+          fetch("https://stark-journey-45418.herokuapp.com/login", {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({ email }),

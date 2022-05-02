@@ -10,14 +10,14 @@ const ManageStokes = () => {
   const [update, setUpdate] = useState(false);
   useEffect(() => {
     fetch(
-      `https://car-warehouse-as-11.web.app/manageStoke?page=${page}&size=${size}`
+      `https://stark-journey-45418.herokuapp.com/manageStoke?page=${page}&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => setStokes(data));
     console.log(update);
   }, [page, size, update]);
   useEffect(() => {
-    fetch(`https://car-warehouse-as-11.web.app/stokesCount`)
+    fetch(`https://stark-journey-45418.herokuapp.com/stokesCount`)
       .then((res) => res.json())
       .then(({ count }) => {
         const newCount = Math.ceil(count / size);

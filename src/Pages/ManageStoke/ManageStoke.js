@@ -6,7 +6,7 @@ const ManageStoke = ({ stoke, setUpdate, update }) => {
   const handelDelete = (id) => {
     const agree = window.confirm("Are you sure delete this stoke?");
     if (agree) {
-      fetch(`https://car-warehouse-as-11.web.app/stoke/${id}`, {
+      fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

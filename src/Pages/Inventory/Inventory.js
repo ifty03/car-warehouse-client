@@ -11,23 +11,26 @@ const Inventory = () => {
   const handelAddStoke = async (addStoke) => {
     const quantity = parseInt(addStoke) + parseInt(stoke?.quantity);
     const newQuantity = { quantity };
-    await fetch(`https://car-warehouse-as-11.web.app/stoke/${inventoryId}`, {
-      method: "PUT",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(newQuantity),
-    })
+    await fetch(
+      `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`,
+      {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(newQuantity),
+      }
+    )
       .then((res) => res.json())
       .then((data) => toast.success("Stoke updated successfully"));
 
     /* update stoke in ui */
-    fetch(`https://car-warehouse-as-11.web.app/stoke/${inventoryId}`)
+    fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setStoke(data));
   };
 
   /* load target data */
   useEffect(() => {
-    fetch(`https://car-warehouse-as-11.web.app/stoke/${inventoryId}`)
+    fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setStoke(data));
   }, []);
@@ -37,16 +40,19 @@ const Inventory = () => {
     const newQuantity = { quantity };
 
     /* update stoke in database*/
-    await fetch(`https://car-warehouse-as-11.web.app/stoke/${inventoryId}`, {
-      method: "PUT",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(newQuantity),
-    })
+    await fetch(
+      `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`,
+      {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(newQuantity),
+      }
+    )
       .then((res) => res.json())
       .then((data) => toast.success("Stoke updated successfully"));
 
     /* update stoke in ui */
-    fetch(`https://car-warehouse-as-11.web.app/stoke/${inventoryId}`)
+    fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setStoke(data));
   };
