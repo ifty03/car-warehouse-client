@@ -54,11 +54,16 @@ const Social = () => {
         onClick={async () => {
           await signInWithGoogle();
           toast.success("login successfully");
+          /* for jwt */
           fetch("https://stark-journey-45418.herokuapp.com/login", {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({ email }),
-          });
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              localStorage.setItem("accessToken", data?.token);
+            });
         }}
         className="text-2xl mx-3"
       ></FcGoogle>
