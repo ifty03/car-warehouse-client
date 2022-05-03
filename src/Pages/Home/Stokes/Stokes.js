@@ -1,9 +1,14 @@
-import React from "react";
-import useStoke from "../../Shared/hook/useStoke";
+import React, { useEffect, useState } from "react";
 import Stoke from "../Stoke/Stoke";
 
 const Stokes = () => {
-  const [stokes] = useStoke();
+  const [stokes, setStokes] = useState([]);
+
+  useEffect(() => {
+    fetch("https://stark-journey-45418.herokuapp.com/stoke")
+      .then((res) => res.json())
+      .then((data) => setStokes(data));
+  }, []);
   return (
     <>
       <blockquote className="text-2xl font-semibold mb-8 italic text-center text-slate-900">

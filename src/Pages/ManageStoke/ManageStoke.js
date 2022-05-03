@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import toast from "react-hot-toast";
+import CustomToast from "../Shared/CustomToast/CustomToast";
 
 const ManageStoke = ({ stoke, setUpdate, update }) => {
   const { name, description, _id, supplier, quantity, price, img } = stoke;
@@ -12,7 +13,7 @@ const ManageStoke = ({ stoke, setUpdate, update }) => {
         .then((res) => res.json())
         .then((data) => {
           setUpdate(!update);
-          toast.success("Successfully deleted");
+          toast.custom(<CustomToast>{id}</CustomToast>);
         });
     }
     console.log("kichoi korlam na");
