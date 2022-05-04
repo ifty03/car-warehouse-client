@@ -26,8 +26,8 @@ const ManageStokes = () => {
   }, []);
   console.log(quantity);
   return (
-    <>
-      <blockquote className="text-2xl mt-4 font-semibold mb-8 italic text-center text-slate-900">
+    <div className="bg-gray-50">
+      <blockquote className="text-2xl pt-4 font-semibold mb-8 italic text-center text-slate-900">
         Our
         <span className="before:block mr-2 mt-5 before:absolute ml-2 before:-inset-1 before:-skew-y-3 before:bg-violet-500 relative inline-block">
           <span className="relative text-white px-2">All</span>
@@ -90,7 +90,7 @@ const ManageStokes = () => {
         </select>
         <span>{"---->"}</span>
       </div>
-    </>
+    </div>
   );
 };
 

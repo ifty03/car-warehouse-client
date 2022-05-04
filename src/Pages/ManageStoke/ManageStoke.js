@@ -19,7 +19,7 @@ const ManageStoke = ({ stoke, setUpdate, update }) => {
     console.log("kichoi korlam na");
   };
   return (
-    <div>
+    <div className="bg-gray-100">
       <div className="card pb-5 bg-base-100 shadow-xl rounded-lg">
         <figure className="relative overflow-hidden">
           <img
