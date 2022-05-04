@@ -37,14 +37,14 @@ const Carosel = () => {
           </div>
           <div class="carousel-item float-left w-full">
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+              src="https://i.ibb.co/Bt0CzMc/Background-6.png"
               class="block w-full"
               alt="Camera"
             />
           </div>
           <div class="carousel-item float-left w-full">
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
+              src="https://i.ibb.co/9HyBtxt/Background-7.png"
               class="block w-full"
               alt="Exotic Fruits"
             />
