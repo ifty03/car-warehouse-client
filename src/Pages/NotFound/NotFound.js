@@ -1,5 +1,6 @@
 import React from "react";
 import errorImg from "../../../src/media/error.png";
+import useNotification from "../Shared/hook/useNotification";
 
 const NotFound = () => {
   return (

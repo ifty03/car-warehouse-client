@@ -42,6 +42,7 @@ const MyAddedItem = () => {
 
   return (
     <div className="">
+      {/* my added items */}
       <div className="flex flex-col max-w-4xl mx-auto md:p-10 lg:p-0 lg:pt-6 pt-6 space-y-4 bg-coolGray-50 text-coolGray-800">
         <h2 className="text-xl ml-6 font-semibold">Your Added Stock</h2>
         <ul className="flex flex-col divide-y divide-coolGray-300">

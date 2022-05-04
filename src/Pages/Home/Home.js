@@ -2,6 +2,7 @@ import React from "react";
 import MostActiceStock from "../MostActiveStock/MostActiceStock";
 import Review from "../Notification/Review/Review";
 import Banner from "./Banner/Banner";
+import Faq from "./Faq/Faq";
 import Offer from "./Offer/Offer";
 import Stokes from "./Stokes/Stokes";
 
@@ -11,8 +12,9 @@ const Home = () => {
       <Banner></Banner>
       <Offer></Offer>
       <Stokes></Stokes>
-      <MostActiceStock></MostActiceStock>
+      <Faq></Faq>
       <Review></Review>
+      <MostActiceStock></MostActiceStock>
     </div>
   );
 };
