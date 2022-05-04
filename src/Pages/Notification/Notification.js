@@ -32,7 +32,7 @@ const Notification = () => {
               <strong className="text-sm font-medium"> Hooray! </strong>
 
               <span className="block text-xs opacity-90">
-                This post has been published.
+                This post has been published. this is
               </span>
             </p>
           </div>

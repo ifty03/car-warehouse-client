@@ -11,6 +11,7 @@ import MyAddedItem from "./Pages/MyAddedItem/MyAddedItem";
 import NotFound from "./Pages/NotFound/NotFound";
 import Notification from "./Pages/Notification/Notification";
 import Profile from "./Pages/Profile/Profile";
+import RateUs from "./Pages/RateUs/RateUs";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import SignUp from "./Pages/SignUp/SignUp";
@@ -56,6 +57,7 @@ function App() {
           path="/notification"
           element={<Notification></Notification>}
         ></Route>
+        <Route path="/rateUs" element={<RateUs></RateUs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>

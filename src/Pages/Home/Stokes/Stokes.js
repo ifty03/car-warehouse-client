@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Slide } from "react-reveal";
 import { Link } from "react-router-dom";
 import Stoke from "../Stoke/Stoke";
 
@@ -11,7 +12,7 @@ const Stokes = () => {
       .then((data) => setStokes(data));
   }, []);
   return (
-    <>
+    <Slide left>
       <blockquote className="text-2xl font-semibold mb-8 italic text-center text-slate-900">
         Our
         <span className="before:block before:absolute ml-2 before:-inset-1 before:-skew-y-3 before:bg-violet-500 relative inline-block">
@@ -48,7 +49,7 @@ const Stokes = () => {
           <span class="pl-4 pr-5 py-2.5">Manage Item</span>
         </Link>
       </button>
-    </>
+    </Slide>
   );
 };
 

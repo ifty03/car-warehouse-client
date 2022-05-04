@@ -4,6 +4,7 @@ import Review from "../Notification/Review/Review";
 import Banner from "./Banner/Banner";
 import Faq from "./Faq/Faq";
 import Offer from "./Offer/Offer";
+import Stats from "./Stats/Stats";
 import Stokes from "./Stokes/Stokes";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Stokes></Stokes>
       <Faq></Faq>
       <Review></Review>
+      <Stats></Stats>
       <MostActiceStock></MostActiceStock>
     </div>
   );

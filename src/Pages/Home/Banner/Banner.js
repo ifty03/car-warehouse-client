@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import banner from "../../../media/banner.png";
+import Carosel from "../../Carosel/Carosel";
 
 const Banner = () => {
   return (
     <div>
       <section className="bg-coolGray-100 text-coolGray-800">
-        <div className="container flex  flex-col-reverse justify-center md:p-6 mx-auto sm:py-5 lg:pt-20 lg:pb-16 lg:flex-row lg:justify-between">
+        <div className="container grid lg:grid-cols-2 grid-cols-1 md:p-6 mx-auto sm:py-5 lg:pt-20 lg:pb-16 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="md:text-5xl text-3xl font-bold leading-none  sm:text-6xl">
               Ac mattis
@@ -31,12 +31,8 @@ const Banner = () => {
               </Link>
             </div>
           </div>
-          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-            <img
-              src={banner}
-              alt=""
-              className="object-contain rounded-xl h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
-            />
+          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0  sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+            <Carosel></Carosel>
           </div>
         </div>
       </section>

@@ -32,21 +32,22 @@ const AddNewItem = () => {
       });
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 w-5/6 mx-auto">
-      <div className="md:mt-28 lg:mt-10">
-        <img
-          src="https://cdni.iconscout.com/illustration/premium/thumb/add-photo-2670583-2215267.png"
-          alt=""
-        />
-      </div>
-      <div className="block p-6 rounded-lg bg-white max-w-md">
-        <img className="mx-auto mb-6" src={logo} alt="" />
-        <form onSubmit={handelAddStock}>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control
+    <div className="bg-gray-50 h-screen pt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-5/6 mx-auto">
+        <div className="md:mt-28 lg:mt-10">
+          <img
+            src="https://cdni.iconscout.com/illustration/premium/thumb/add-photo-2670583-2215267.png"
+            alt=""
+          />
+        </div>
+        <div className="block p-6 rounded-lg bg-gray-100 max-w-md">
+          <img className="mx-auto mb-6" src={logo} alt="" />
+          <form onSubmit={handelAddStock}>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="form-group mb-6">
+                <input
+                  type="text"
+                  className="form-control
           block
           w-full
           px-3
@@ -61,17 +62,17 @@ const AddNewItem = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
-                name="name"
-                id="exampleInput123"
-                aria-describedby="emailHelp123"
-                placeholder="Stock name"
-                required
-              />
-            </div>
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control
+                  name="name"
+                  id="exampleInput123"
+                  aria-describedby="emailHelp123"
+                  placeholder="Stock name"
+                  required
+                />
+              </div>
+              <div className="form-group mb-6">
+                <input
+                  type="text"
+                  className="form-control
           block
           w-full
           px-3
@@ -86,19 +87,19 @@ const AddNewItem = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
-                id="exampleInput124"
-                name="supplier"
-                aria-describedby="emailHelp124"
-                placeholder="Supplier name"
-                required
-              />
+                  id="exampleInput124"
+                  name="supplier"
+                  aria-describedby="emailHelp124"
+                  placeholder="Supplier name"
+                  required
+                />
+              </div>
             </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="form-group mb-6">
-              <input
-                type="number"
-                className="form-control
+            <div className="grid grid-cols-2 gap-4">
+              <div className="form-group mb-6">
+                <input
+                  type="number"
+                  className="form-control
           block
           w-full
           px-3
@@ -113,17 +114,17 @@ const AddNewItem = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
-                name="quantity"
-                id="exampleInput123"
-                aria-describedby="emailHelp123"
-                placeholder="Quantity"
-                required
-              />
-            </div>
-            <div className="form-group mb-6">
-              <input
-                type="number"
-                className="form-control
+                  name="quantity"
+                  id="exampleInput123"
+                  aria-describedby="emailHelp123"
+                  placeholder="Quantity"
+                  required
+                />
+              </div>
+              <div className="form-group mb-6">
+                <input
+                  type="number"
+                  className="form-control
           block
           w-full
           px-3
@@ -138,19 +139,19 @@ const AddNewItem = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
-                id="exampleInput124"
-                aria-describedby="emailHelp124"
-                name="price"
-                placeholder="Price"
-                required
-              />
+                  id="exampleInput124"
+                  aria-describedby="emailHelp124"
+                  name="price"
+                  placeholder="Price"
+                  required
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="form-group mb-6">
-            <input
-              type="text"
-              className="form-control block
+            <div className="form-group mb-6">
+              <input
+                type="text"
+                className="form-control block
         w-full
         px-3
         py-1.5
@@ -164,15 +165,15 @@ const AddNewItem = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
-              name="img"
-              id="exampleInput125"
-              placeholder="img url"
-              required
-            />
-          </div>
-          <div className="form-group mb-6">
-            <textarea
-              className="
+                name="img"
+                id="exampleInput125"
+                placeholder="img url"
+                required
+              />
+            </div>
+            <div className="form-group mb-6">
+              <textarea
+                className="
         form-control
         block
         w-full
@@ -189,30 +190,30 @@ const AddNewItem = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
-              id="exampleFormControlTextarea13"
-              name="description"
-              rows="3"
-              placeholder="Description"
-              required
-            ></textarea>
-          </div>
+                id="exampleFormControlTextarea13"
+                name="description"
+                rows="3"
+                placeholder="Description"
+                required
+              ></textarea>
+            </div>
 
-          <div className="form-group form-check text-center mb-6">
+            <div className="form-group form-check text-center mb-6">
+              <input
+                type="checkbox"
+                className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-violet-600 checked:border-violet-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+                id="exampleCheck25"
+                name="check"
+              />
+              <label
+                className="form-check-label inline-block text-gray-800"
+                htmlFor="exampleCheck25"
+              >
+                I read all condition
+              </label>
+            </div>
             <input
-              type="checkbox"
-              className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-violet-600 checked:border-violet-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
-              id="exampleCheck25"
-              name="check"
-            />
-            <label
-              className="form-check-label inline-block text-gray-800"
-              htmlFor="exampleCheck25"
-            >
-              I read all condition
-            </label>
-          </div>
-          <input
-            className="
+              className="
       w-full
       px-6
       py-2.5
@@ -231,10 +232,11 @@ const AddNewItem = () => {
       cursor-pointer
       duration-150
       ease-in-out"
-            type="submit"
-            value="Add to stock"
-          />
-        </form>
+              type="submit"
+              value="Add to stock"
+            />
+          </form>
+        </div>
       </div>
     </div>
   );

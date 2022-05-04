@@ -2,7 +2,7 @@ import React from "react";
 
 const CustomToast = ({ children }) => {
   return (
-    <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 w-64 m-auto">
+    <div class="shadow-lg rounded-2xl p-4  bg-gray-800 w-64 m-auto">
       <div class="w-full h-full text-center">
         <div class="flex h-full flex-col justify-between">
           <svg
@@ -21,18 +21,13 @@ const CustomToast = ({ children }) => {
           <p class="text-gray-600 dark:text-gray-100 text-md py-2 px-6">
             Item
             <span class="text-gray-800 dark:text-white font-bold">
-              {children}
+              {children == "Thanks for your feedback" ? "" : { children }}
             </span>
-            has been deleted form database.
+            {children == "Thanks for your feedback"
+              ? "Thanks for your feedback"
+              : "has been deleted form database."}
           </p>
-          <div class="flex items-center justify-between gap-4 w-full mt-8">
-            <button
-              type="button"
-              class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-            >
-              Close
-            </button>
-          </div>
+          <div class="flex items-center justify-between gap-4 w-full mt-8"></div>
         </div>
       </div>
     </div>
