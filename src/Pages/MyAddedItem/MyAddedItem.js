@@ -44,7 +44,9 @@ const MyAddedItem = () => {
     <div className="">
       {/* my added items */}
       <div className="flex flex-col max-w-4xl mx-auto md:p-10 lg:p-0 lg:pt-6 pt-6 space-y-4 bg-coolGray-50 text-coolGray-800">
-        <h2 className="text-xl ml-6 font-semibold">Your Added Stock</h2>
+        <h2 className="text-xl ml-6 font-semibold">
+          Your Added Stock {myStocks?.length}
+        </h2>
         <ul className="flex flex-col divide-y divide-coolGray-300">
           {myStocks.map((myStock) => (
             <li
@@ -114,26 +116,30 @@ const MyAddedItem = () => {
             </li>
           ))}
         </ul>
-        <div className="space-y-1 text-right">
-          <p>
-            Total Added Stock:
-            <span className="font-semibold">{myStocks.length}</span>
-          </p>
-        </div>
-        <div className="flex justify-end space-x-4">
-          <Link
-            to="/home"
-            className="px-6 py-2 border rounded-md hover:bg-violet-600 hover:text-white border-violet-600"
-          >
-            Back <span className="sr-only sm:not-sr-only"> to Home</span>
-          </Link>
-          <button
-            type="button"
-            className="px-6 py-2 border rounded-md bg-violet-600 text-white border-violet-600"
-          >
-            <span className="sr-only sm:not-sr-only">Add More </span> Item
-          </button>
-        </div>
+        {myStocks?.length && (
+          <div className="">
+            <div className="space-y-2 text-right ">
+              <p>
+                Total Added Stock:
+                <span className="font-semibold">{myStocks.length}</span>
+              </p>
+            </div>
+            <div className="flex justify-end space-x-4 mb-10">
+              <Link
+                to="/home"
+                className="px-6 py-2 border rounded-md hover:bg-violet-600 hover:text-white border-violet-600"
+              >
+                Back <span className="sr-only sm:not-sr-only"> to Home</span>
+              </Link>
+              <Link
+                to="/addNewItem"
+                className="px-6 py-2 border rounded-md bg-violet-600 text-white border-violet-600"
+              >
+                <span className="sr-only sm:not-sr-only">Add More </span> Item
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
