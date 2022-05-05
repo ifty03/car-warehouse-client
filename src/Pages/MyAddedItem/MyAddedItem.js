@@ -5,6 +5,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import noItem from "../../media/no-item.png";
 
 const MyAddedItem = () => {
   const [user, loading] = useAuthState(auth);
@@ -34,24 +35,30 @@ const MyAddedItem = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          toast.success("Item delete successfully");
           setUpdate(!update);
+          toast.success("Item delete successfully");
         });
     }
   };
 
   return (
-    <div className="">
+    <div className="bg-gray-50 min-h-screen">
+      {myStocks?.length == 0 && (
+        <img className="w-4/6 mx-auto" src={noItem} alt="" />
+      )}
+
       {/* my added items */}
       <div className="flex flex-col max-w-4xl mx-auto md:p-10 lg:p-0 lg:pt-6 pt-6 space-y-4 bg-coolGray-50 text-coolGray-800">
-        <h2 className="text-xl ml-6 font-semibold">
-          Your Added Stock {myStocks?.length}
-        </h2>
-        <ul className="flex flex-col divide-y divide-coolGray-300">
+        {myStocks?.length != 0 && (
+          <h2 className="text-xl ml-6 font-semibold">
+            Your Added Stock {myStocks?.length}
+          </h2>
+        )}
+        <ul className="flex flex-col shadow-lg divide-y divide-coolGray-300">
           {myStocks.map((myStock) => (
             <li
               key={myStock._id}
-              className="flex flex-col bg-gray-50 p-6 sm:flex-row sm:justify-between "
+              className="flex flex-col bg-violet-50 p-6 sm:flex-row sm:justify-between "
             >
               <div className="flex w-full space-x-2 sm:space-x-4">
                 <img
@@ -68,9 +75,11 @@ const MyAddedItem = () => {
                       <p className="text-sm text-violet-600">
                         {myStock.supplier}
                       </p>
-                      <p className="text-sm text-colGray-600 pb-4">
-                        {user?.email}
+
+                      <p className="text-sm text-colGray-600">
+                        Quantity: {myStock?.quantity}
                       </p>
+                      <p className="text-sm text-colGray-600">{user?.email}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-lg font-semibold">{myStock?.price}</p>
@@ -116,30 +125,29 @@ const MyAddedItem = () => {
             </li>
           ))}
         </ul>
-        {myStocks?.length && (
-          <div className="">
-            <div className="space-y-2 text-right ">
-              <p>
-                Total Added Stock:
-                <span className="font-semibold">{myStocks.length}</span>
-              </p>
-            </div>
-            <div className="flex justify-end space-x-4 mb-10">
-              <Link
-                to="/home"
-                className="px-6 py-2 border rounded-md hover:bg-violet-600 hover:text-white border-violet-600"
-              >
-                Back <span className="sr-only sm:not-sr-only"> to Home</span>
-              </Link>
-              <Link
-                to="/addNewItem"
-                className="px-6 py-2 border rounded-md bg-violet-600 text-white border-violet-600"
-              >
-                <span className="sr-only sm:not-sr-only">Add More </span> Item
-              </Link>
-            </div>
+
+        <div className="lg:w-full w-fit mx-auto">
+          <div className="space-y-2 text-right ">
+            <p>
+              Total Added Stock:
+              <span className="font-semibold">{myStocks?.length}</span>
+            </p>
           </div>
-        )}
+          <div className="flex justify-end space-x-4 mb-10">
+            <Link
+              to="/home"
+              className="px-6 py-2 border rounded-md hover:bg-violet-600 hover:text-white border-violet-600"
+            >
+              Back <span className="sr-only sm:not-sr-only"> to Home</span>
+            </Link>
+            <Link
+              to="/addNewItem"
+              className="px-6 py-2 border rounded-md bg-violet-600 text-white border-violet-600"
+            >
+              Add More <span className="sr-only sm:not-sr-only">Item </span>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

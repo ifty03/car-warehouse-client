@@ -2,7 +2,7 @@ import React from "react";
 
 const Notification = () => {
   return (
-    <div className="h-min-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <div className="w-5/6 mx-auto py-10">
         {/* <!-- Success --> */}
 

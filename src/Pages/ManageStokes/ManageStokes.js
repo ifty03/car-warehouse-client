@@ -14,7 +14,6 @@ const ManageStokes = () => {
     )
       .then((res) => res.json())
       .then((data) => setStokes(data));
-    console.log(update);
   }, [page, size, update]);
   useEffect(() => {
     fetch(`https://stark-journey-45418.herokuapp.com/stokesCount`)
@@ -24,7 +23,7 @@ const ManageStokes = () => {
         setQuantity(newCount);
       });
   }, []);
-  console.log(quantity);
+
   return (
     <div className="bg-gray-50">
       <blockquote className="text-2xl pt-4 font-semibold mb-8 italic text-center text-slate-900">

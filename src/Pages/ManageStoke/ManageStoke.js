@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import toast from "react-hot-toast";
-import CustomToast from "../Shared/CustomToast/CustomToast";
 
 const ManageStoke = ({ stoke, setUpdate, update }) => {
   const { name, description, _id, supplier, quantity, price, img } = stoke;
@@ -13,10 +12,9 @@ const ManageStoke = ({ stoke, setUpdate, update }) => {
         .then((res) => res.json())
         .then((data) => {
           setUpdate(!update);
-          toast.custom(<CustomToast>{id}</CustomToast>);
+          toast.success("item deleted successfully");
         });
     }
-    console.log("kichoi korlam na");
   };
   return (
     <div className="bg-gray-100">
@@ -54,7 +52,7 @@ const ManageStoke = ({ stoke, setUpdate, update }) => {
           </p>
           <p>
             <span className="font-semibold mr-2">description:</span>{" "}
-            {description}
+            {description.slice(0, 100) + "..."}
           </p>
           <button
             onClick={() => handelDelete(_id)}

@@ -39,7 +39,7 @@ const Stoke = ({ stoke }) => {
           </p>
           <p>
             <span className="font-semibold mr-2">description:</span>{" "}
-            {description}
+            {description.slice(0, 100) + "..."}
           </p>
           <Link
             to={`/inventory/${_id}`}
