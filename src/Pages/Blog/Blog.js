@@ -3,13 +3,13 @@ import { Bounce } from "react-reveal";
 
 const Blog = () => {
   return (
-    <div className="h-min-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <h2 className="text-4xl text-gray-700 font-bold text-center py-4 ">
         Blogs
       </h2>
       <Bounce left>
-        <section class="bg-gray-100 w-5/6 mx-auto rounded-lg">
-          <div class="container px-6 py-8 mx-auto">
+        <section class="">
+          <div class="bg-gray-100 w-5/6 rounded-lg mb-8 shadow-lg px-6 py-8 mx-auto">
             <div class="items-center lg:flex">
               <div class="lg:w-1/2">
                 <h2 class="text-3xl font-bold text-gray-800">
@@ -86,8 +86,8 @@ const Blog = () => {
         </section>
       </Bounce>
       <Bounce right>
-        <section class="bg-gray-100 w-5/6 mx-auto rounded-lg my-5">
-          <div class="container px-6 py-8 mx-auto">
+        <section class="">
+          <div class="bg-gray-100 w-5/6 mx-auto rounded-lg mb-6 shadow-lg px-6 py-8">
             <div class="items-center lg:flex">
               <div class="lg:w-1/2">
                 <h2 class="text-3xl font-bold text-gray-800">
@@ -167,8 +167,8 @@ const Blog = () => {
         </section>
       </Bounce>
       <Bounce left>
-        <section class="bg-gray-100 w-5/6 mx-auto rounded-lg my-5">
-          <div class="container px-6 py-8 mx-auto">
+        <section class="">
+          <div class="bg-gray-100 w-5/6 rounded-lg mb-8 shadow-lg px-6 py-8 mx-auto">
             <div class="items-center lg:flex">
               <div class="lg:w-1/2">
                 <h2 class="text-3xl font-bold text-gray-800">
@@ -244,8 +244,8 @@ const Blog = () => {
         </section>
       </Bounce>
       <Bounce right>
-        <section class="bg-gray-100 w-5/6 mx-auto rounded-lg my-5">
-          <div class="container px-6 py-8 mx-auto">
+        <section class="">
+          <div class="bg-gray-100 w-5/6 rounded-lg mb-8 shadow-lg px-6 py-8 mx-auto">
             <div class="items-center lg:flex">
               <div class="lg:w-1/2">
                 <h2 class="text-3xl font-bold text-gray-800">
