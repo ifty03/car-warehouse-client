@@ -15,6 +15,7 @@ import RateUs from "./Pages/RateUs/RateUs";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import SignUp from "./Pages/SignUp/SignUp";
+import Table from "./Pages/Table/Table";
 import RequireAuth from "./RequireAuth/RequireAuth";
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           path="/notification"
           element={<Notification></Notification>}
         ></Route>
+        <Route path="/table" element={<Table></Table>}></Route>
         <Route path="/rateUs" element={<RateUs></RateUs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>

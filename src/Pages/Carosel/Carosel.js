@@ -3,7 +3,7 @@ import banner from "../../media/banner.png";
 
 const Carosel = () => {
   return (
-    <div>
+    <div className="mt-10 lg:mt-0">
       <div
         id="carouselExampleIndicators"
         class="carousel slide relative"

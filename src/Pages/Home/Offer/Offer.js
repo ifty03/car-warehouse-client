@@ -5,7 +5,7 @@ import offerImg from "../../../media/offer .png";
 const Offer = () => {
   return (
     <Slide bottom>
-      <div>
+      <div className=" mt-20 lg:mt-0">
         <section className="relative overflow-hidden rounded-tb-3xl rounded-lg lg:mb-20 shadow-2xl lg:mx-20 mx-6 md:mx-16 mb-8 pb-80 lg:pb-0">
           <div className="p-8 ml-auto text-center lg:w-2/3 sm:p-12">
             <p className="text-sm font-semibold tracking-widest uppercase">
