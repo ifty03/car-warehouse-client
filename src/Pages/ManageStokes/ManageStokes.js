@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ManageStoke from "../ManageStoke/ManageStoke";
 import { Link } from "react-router-dom";
+import Loading from "../Shared/Loading/Loading";
 
 const ManageStokes = () => {
   const [stokes, setStokes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [size, setSize] = useState(6);
@@ -13,7 +15,10 @@ const ManageStokes = () => {
       `https://stark-journey-45418.herokuapp.com/manageStoke?page=${page}&size=${size}`
     )
       .then((res) => res.json())
-      .then((data) => setStokes(data));
+      .then((data) => {
+        setStokes(data);
+        setLoading(false);
+      });
   }, [page, size, update]);
   useEffect(() => {
     fetch(`https://stark-journey-45418.herokuapp.com/stokesCount`)
@@ -22,8 +27,11 @@ const ManageStokes = () => {
         const newCount = Math.ceil(count / size);
         setQuantity(newCount);
       });
-  }, []);
+  }, [size]);
 
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="bg-gray-50">
       <blockquote className="text-2xl pt-4 font-semibold mb-8 italic text-center text-slate-900">

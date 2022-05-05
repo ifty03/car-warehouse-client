@@ -235,9 +235,9 @@ const Header = () => {
                 role="button"
               >
                 <img
-                  src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                  src="https://i.ibb.co/r48dbVG/115961010-329822831511717-1501318342771076328-n.jpg"
                   className="rounded-full"
-                  style={{ height: "25px", width: "25px" }}
+                  style={{ height: "27px", width: "27px" }}
                   alt=""
                   loading="lazy"
                 />

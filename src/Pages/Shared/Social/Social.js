@@ -37,9 +37,7 @@ const Social = () => {
   if (user) {
     navigate(from, { replace: true });
   }
-  if (gitErr) {
-    console.log(gitErr);
-  }
+
   return (
     <div className="flex justify-center cursor-pointer">
       <BsFacebook

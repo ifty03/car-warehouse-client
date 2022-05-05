@@ -6,9 +6,11 @@ import { MdFavorite } from "react-icons/md";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import noItem from "../../media/no-item.png";
+import Loading from "../Shared/Loading/Loading";
 
 const MyAddedItem = () => {
   const [user, loading] = useAuthState(auth);
+  const [checkLoading, setCheckLoading] = useState(true);
   const [myStocks, setMyStocks] = useState([]);
   const [fevorite, setFevorite] = useState(0);
   const [update, setUpdate] = useState(false);
@@ -21,8 +23,17 @@ const MyAddedItem = () => {
           )}`,
         },
       })
-        .then((res) => res.json())
-        .then((data) => setMyStocks(data));
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          throw new Error("Something went wrong");
+        })
+        .then((data) => {
+          setMyStocks(data);
+          setCheckLoading(false);
+        })
+        .catch((error) => setCheckLoading(false));
     }
   }, [loading, update, user]);
 
@@ -40,7 +51,9 @@ const MyAddedItem = () => {
         });
     }
   };
-
+  if (checkLoading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="bg-gray-50 min-h-screen">
       {myStocks?.length == 0 && (
