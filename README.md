@@ -4,6 +4,9 @@
 
 ## This is live project [https://car-warehouse-as-11.web.app/](https://car-warehouse-as-11.web.app/)
 
+## Project description
+My website is car warehouse related. and it is a full stack website. Basically to create this website used javascript,node js,express,react,html,css,tailwindcss.firebase has been used for authentication here. And the JWT that has been used for authorization.for backend used node js and mongodb. This is the basic overview of this website. 
+
 ## Everything that has been used in this project
 
 - Javascript
@@ -21,7 +24,7 @@
 - Hot toast
 - etc...
 
-## There is a lot in this project
+## Everything in this project
 
 * This project name is wms 360 warehouse management(car & bike)
 * This website home page includes banner,offer,inventory,FAQ,Experts-suggetions,activaty,most-active-stock
