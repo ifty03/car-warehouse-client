@@ -125,7 +125,7 @@ const Inventory = () => {
               </div>
               <button
                 onClick={handelDelivered}
-                className="px-5 py-2.5 lg:mt-0 md:mt-4 relative mx-auto block rounded group overflow-hidden font-medium bg-violet-600 text-white w-fit "
+                className="px-5 py-2.5 md:mt-0 mt-4 relative mx-auto block rounded group overflow-hidden font-medium bg-violet-600 text-white w-fit "
               >
                 <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-black group-hover:h-full opacity-90"></span>
                 <span className="relative group-hover:text-white">
