@@ -108,7 +108,7 @@ const Inventory = () => {
                       onBlur={(e) => setAddStoke(e.target.value)}
                       type="number"
                       className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-600 focus:outline-none"
-                      placeholder="Add stoke"
+                      placeholder="Restock the items"
                       aria-label="Search"
                       aria-describedby="button-addon2"
                     />
@@ -125,7 +125,7 @@ const Inventory = () => {
               </div>
               <button
                 onClick={handelDelivered}
-                className="px-5 py-2.5 relative mx-auto block rounded group overflow-hidden font-medium bg-violet-600 text-white w-fit "
+                className="px-5 py-2.5 lg:mt-0 md:mt-4 relative mx-auto block rounded group overflow-hidden font-medium bg-violet-600 text-white w-fit "
               >
                 <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-black group-hover:h-full opacity-90"></span>
                 <span className="relative group-hover:text-white">
@@ -138,7 +138,7 @@ const Inventory = () => {
       </div>
       {/* manage button */}
       <Link
-        to="/manageStoke"
+        to="/manageItemMain"
         className="relative px-5 mx-auto block w-fit py-3 mb-10 overflow-hidden font-medium text-white bg-violet-600 border border-violet-500 rounded-lg shadow-inner group"
       >
         <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-gray-600 group-hover:w-full ease"></span>

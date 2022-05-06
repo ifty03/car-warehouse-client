@@ -49,6 +49,15 @@ const MyAddedItem = () => {
           setUpdate(!update);
           toast.success("Item delete successfully");
         });
+      fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setUpdate(!update);
+          toast.success("item deleted successfully");
+        });
     }
   };
   if (checkLoading) {

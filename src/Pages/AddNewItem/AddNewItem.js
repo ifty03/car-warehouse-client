@@ -17,6 +17,14 @@ const AddNewItem = () => {
     const img = e.target.img.value;
     const stock = { name, price, quantity, supplier, email, description, img };
 
+    /* set Item in main database */
+    fetch("https://stark-journey-45418.herokuapp.com/addNewItem", {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(stock),
+    });
+
+    /* set Item in user database */
     fetch("https://stark-journey-45418.herokuapp.com/addStoke", {
       method: "PUT",
       headers: {
