@@ -6,8 +6,8 @@ import CustomToast from "../Shared/CustomToast/CustomToast";
 const RateUs = () => {
   const [star1, setStar1] = useState(true);
   const [star2, setStar2] = useState(true);
-  const [star3, setStar3] = useState(false);
-  const [star4, setStar4] = useState(false);
+  const [star3, setStar3] = useState(true);
+  const [star4, setStar4] = useState(true);
   const [star5, setStar5] = useState(false);
   return (
     <div className="h-screen bg-gray-50 py-10">

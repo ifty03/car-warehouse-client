@@ -141,7 +141,7 @@ const MyAddedItem = () => {
 
         <div className="lg:w-full w-fit mx-auto">
           <div className="space-y-2 text-right ">
-            <p>
+            <p className="my-2">
               Total Added Stock:
               <span className="font-semibold">{myStocks?.length}</span>
             </p>

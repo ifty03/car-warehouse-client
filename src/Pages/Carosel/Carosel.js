@@ -33,19 +33,23 @@ const Carosel = () => {
         </div>
         <div className="carousel-inner relative w-full overflow-hidden">
           <div className="carousel-item active float-left w-full">
-            <img src={banner} className="block w-full" alt="Wild Landscape" />
+            <img
+              src={banner}
+              className="block w-full rounded-lg"
+              alt="Wild Landscape"
+            />
           </div>
           <div className="carousel-item float-left w-full">
             <img
               src="https://i.ibb.co/Bt0CzMc/Background-6.png"
-              className="block w-full"
+              className="block w-full rounded-lg"
               alt="Camera"
             />
           </div>
           <div className="carousel-item float-left w-full">
             <img
               src="https://i.ibb.co/9HyBtxt/Background-7.png"
-              className="block w-full"
+              className="block w-full rounded-lg"
               alt="Exotic Fruits"
             />
           </div>

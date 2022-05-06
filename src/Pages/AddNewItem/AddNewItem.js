@@ -32,7 +32,7 @@ const AddNewItem = () => {
       });
   };
   return (
-    <div className="bg-gray-50 h-screen pt-8">
+    <div className="bg-gray-50 min-h-screen pt-8">
       <div className="grid grid-cols-1 md:grid-cols-2 w-5/6 mx-auto">
         <div className="md:mt-28 lg:mt-10">
           <img
@@ -56,7 +56,7 @@ const AddNewItem = () => {
           font-normal
           text-gray-700
           bg-white bg-clip-padding
-          border border-solid border-gray-300
+          
           rounded
           transition
           ease-in-out
@@ -81,7 +81,7 @@ const AddNewItem = () => {
           font-normal
           text-gray-700
           bg-white bg-clip-padding
-          border border-solid border-gray-300
+          
           rounded
           transition
           ease-in-out
@@ -108,7 +108,7 @@ const AddNewItem = () => {
           font-normal
           text-gray-700
           bg-white bg-clip-padding
-          border border-solid border-gray-300
+          
           rounded
           transition
           ease-in-out
@@ -133,7 +133,7 @@ const AddNewItem = () => {
           font-normal
           text-gray-700
           bg-white bg-clip-padding
-          border border-solid border-gray-300
+          
           rounded
           transition
           ease-in-out
@@ -159,7 +159,7 @@ const AddNewItem = () => {
         font-normal
         text-gray-700
         bg-white bg-clip-padding
-        border border-solid border-gray-300
+        
         rounded
         transition
         ease-in-out
@@ -183,7 +183,7 @@ const AddNewItem = () => {
         font-normal
         text-gray-700
         bg-white bg-clip-padding
-        border border-solid border-gray-300
+        
         rounded
         transition
         ease-in-out

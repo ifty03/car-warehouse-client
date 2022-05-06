@@ -22,10 +22,10 @@ const Stoke = ({ stoke }) => {
               Offer
             </div>
           </div>
-          <h2 className="card-title text-lg">
+          <h2 className="card-title text-lg mt-3">
             <span className="text-violet-600">{name}</span>
             <span className="py-1 ml-3 px-3 text-sm rounded-full bg-pink-600 text-white">
-              New
+              {quantity ? "Sold" : "Sold Out"}
             </span>
           </h2>
           <p className="mt-3">
@@ -37,9 +37,9 @@ const Stoke = ({ stoke }) => {
           <p>
             <span className="font-semibold mr-2">Quantity:</span> {quantity}
           </p>
-          <p>
+          <p title={description}>
             <span className="font-semibold mr-2">description:</span>{" "}
-            {description.slice(0, 100) + "..."}
+            {description.slice(0, 65) + "..."}
           </p>
           <Link
             to={`/inventory/${_id}`}

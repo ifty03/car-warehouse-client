@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { Slide } from "react-reveal";
 import offerImg from "../../../media/offer .png";
 
@@ -21,7 +22,7 @@ const Offer = () => {
               </span>
             </h5>
 
-            <button className="inline-block w-full lg:w-3/6 rounded-md py-4 mt-8 text-sm font-bold tracking-widest text-white uppercase bg-violet-600 ">
+            <button className="inline-block w-full lg:w-3/6 rounded-md py-4 mt-8 text-sm font-bold tracking-widest text-white uppercase bg-violet-600 hover:bg-violet-700">
               Get Discount
             </button>
 
