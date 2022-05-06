@@ -21,7 +21,7 @@
 - Hot toast
 - etc...
 
-## There is a lot in this project
+## Everything in this project
 
 * This project name is wms 360 warehouse management(car & bike)
 * This website home page includes banner,offer,inventory,FAQ,Experts-suggetions,activaty,most-active-stock
