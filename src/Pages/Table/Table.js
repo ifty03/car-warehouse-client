@@ -79,7 +79,7 @@ const Table = () => {
               </thead>
 
               {stokes.map((stoke) => (
-                <tbody class="bg-white">
+                <tbody key={stoke._id} class="bg-white">
                   <tr>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
                       <div class="flex items-center">

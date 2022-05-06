@@ -77,7 +77,6 @@ function App() {
           path="/notification"
           element={<Notification></Notification>}
         ></Route>
-        <Route path="/table" element={<Table></Table>}></Route>
         <Route path="/rateUs" element={<RateUs></RateUs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
