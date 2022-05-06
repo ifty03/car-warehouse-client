@@ -116,7 +116,7 @@ const Header = () => {
               {user && (
                 <li className="nav-item p-2">
                   <NavLink
-                    to="/manageStoke"
+                    to="/manageItemMain"
                     className={({ isActive }) =>
                       isActive
                         ? "text-rose-600 nav-link p-0 border-b-2 pb-2 border-b-rose-600"

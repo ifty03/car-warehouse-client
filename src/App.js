@@ -6,6 +6,7 @@ import Blog from "./Pages/Blog/Blog";
 import Home from "./Pages/Home/Home";
 import Inventory from "./Pages/Inventory/Inventory";
 import Login from "./Pages/Login/Login";
+import ManageItemMain from "./Pages/ManageItemMain/ManageItemMain";
 import ManageStokes from "./Pages/ManageStokes/ManageStokes";
 import MyAddedItem from "./Pages/MyAddedItem/MyAddedItem";
 import NotFound from "./Pages/NotFound/NotFound";
@@ -35,7 +36,11 @@ function App() {
         ></Route>
         <Route
           path="/manageStoke"
-          element={<ManageStokes></ManageStokes>}
+          element={
+            <RequireAuth>
+              <ManageStokes></ManageStokes>
+            </RequireAuth>
+          }
         ></Route>
         <Route
           path="/addNewItem"
@@ -53,6 +58,20 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route
+          path="/manageItemMain"
+          element={
+            <RequireAuth>
+              <ManageItemMain></ManageItemMain>
+            </RequireAuth>
+          }
+        >
+          <Route
+            path="/manageItemMain/card"
+            element={<ManageStokes></ManageStokes>}
+          ></Route>
+          <Route path="/manageItemMain/table" element={<Table></Table>}></Route>
+        </Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route
           path="/notification"
