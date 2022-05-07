@@ -41,14 +41,6 @@ const MyAddedItem = () => {
   const handelDeleteMyItem = (id) => {
     const agree = window.confirm("Are you sure delete this item");
     if (agree) {
-      fetch(`https://stark-journey-45418.herokuapp.com/myItem/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setUpdate(!update);
-          toast.success("Item delete successfully");
-        });
       fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
         method: "DELETE",
       })
@@ -80,7 +72,7 @@ const MyAddedItem = () => {
           {myStocks.map((myStock) => (
             <li
               key={myStock._id}
-              className="flex flex-col bg-violet-50 p-6 sm:flex-row sm:justify-between "
+              className="flex flex-col bg-gray-100 p-6 sm:flex-row sm:justify-between "
             >
               <div className="flex w-full space-x-2 sm:space-x-4">
                 <img
