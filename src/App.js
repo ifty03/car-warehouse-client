@@ -66,6 +66,7 @@ function App() {
             </RequireAuth>
           }
         >
+          <Route index element={<Table></Table>} />
           <Route
             path="/manageItemMain/card"
             element={<ManageStokes></ManageStokes>}

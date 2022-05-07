@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Loading from "../Shared/Loading/Loading";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { MdOutlineAddCircle } from "react-icons/md";
 import toast from "react-hot-toast";
 
 const Table = () => {
@@ -54,6 +55,17 @@ const Table = () => {
       <div class="flex flex-col bg-gray-50 pt-8 min-h-screen">
         <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div class="inline-block min-w-full overflow-hidden align-middle ">
+            <div className="w-5/6 mx-auto">
+              <Link
+                to="/addNewItem"
+                className="bg-green-500 w-fit hover:bg-green-600 cursor-pointer py-2 px-4 text-white mb-3 rounded ml-auto block"
+              >
+                <div className="flex items-center">
+                  <span>Add New Item</span>{" "}
+                  <MdOutlineAddCircle className="text-2xl ml-2"></MdOutlineAddCircle>
+                </div>
+              </Link>
+            </div>
             <table class="w-5/6 mx-auto border-b border-gray-300 shadow sm:rounded-lg">
               <thead>
                 <tr>
@@ -79,7 +91,7 @@ const Table = () => {
               </thead>
 
               {stokes.map((stoke) => (
-                <tbody key={stoke._id} class="bg-white">
+                <tbody key={stoke._id} class="bg-white hover:bg-gray-100">
                   <tr>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
                       <div class="flex items-center">
