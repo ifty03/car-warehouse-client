@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import noItem from "../../media/no-item.png";
 import Loading from "../Shared/Loading/Loading";
@@ -39,18 +40,28 @@ const MyAddedItem = () => {
 
   //  remove a item from my Stock
   const handelDeleteMyItem = (id) => {
-    const agree = window.confirm("Are you sure delete this item");
-    if (agree) {
-      fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          setUpdate(!update);
-          toast.success("item deleted successfully");
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            setUpdate(!update);
+            toast.success("item deleted successfully");
+          });
+      }
+    });
   };
   if (checkLoading) {
     return <Loading></Loading>;

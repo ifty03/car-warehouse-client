@@ -1,20 +1,31 @@
 import React, { useEffect } from "react";
+import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 
 const ManageStoke = ({ stoke, setUpdate, update }) => {
   const { name, description, _id, supplier, quantity, price, img } = stoke;
   const handelDelete = (id) => {
-    const agree = window.confirm("Are you sure delete this stoke?");
-    if (agree) {
-      fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setUpdate(!update);
-          toast.success("item deleted successfully");
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setUpdate(!update);
+            toast.success("item deleted successfully");
+          });
+      }
+    });
   };
   return (
     <div className="">

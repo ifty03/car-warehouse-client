@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import CustomToast from "../Shared/CustomToast/CustomToast";
 
 const RateUs = () => {
   const [star1, setStar1] = useState(true);
@@ -115,9 +114,12 @@ const RateUs = () => {
             <button
               type="button"
               onClick={() => {
-                toast.custom(
-                  <CustomToast>Thanks for your feedback</CustomToast>
-                );
+                Swal.fire({
+                  icon: "success",
+                  title: "hurry !",
+                  text: "Tanks for your feedback",
+                  footer: '<a href="">report bug?</a>',
+                });
               }}
               className="py-4 my-8 font-semibold rounded-md text-white hover:bg-violet-700 bg-violet-600"
             >

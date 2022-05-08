@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../Shared/Loading/Loading";
 import { FiEdit } from "react-icons/fi";
+import Swal from "sweetalert2";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineAddCircle } from "react-icons/md";
 import toast from "react-hot-toast";
@@ -34,17 +35,38 @@ const Table = () => {
 
   /* delete a stock */
   const handelDelete = (id) => {
-    const agree = window.confirm("Are you sure delete this stoke?");
-    if (agree) {
-      fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setUpdate(!update);
-          toast.success("item deleted successfully");
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setUpdate(!update);
+            toast.success("item deleted successfully");
+          });
+      }
+    });
+
+    // if (agree) {
+    //   fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
+    //     method: "DELETE",
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       setUpdate(!update);
+    //       toast.success("item deleted successfully");
+    //     });
+    // }
   };
 
   if (loading) {
