@@ -116,8 +116,8 @@ const RateUs = () => {
               onClick={() => {
                 Swal.fire({
                   icon: "success",
-                  title: "hurry !",
-                  text: "Tanks for your feedback",
+                  title: "Hurray !",
+                  text: "Thanks for your feedback",
                   footer: '<a href="">report bug?</a>',
                 });
               }}

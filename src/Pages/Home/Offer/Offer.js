@@ -1,5 +1,6 @@
 import React from "react";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import { Slide } from "react-reveal";
 import offerImg from "../../../media/offer .png";
 
@@ -22,7 +23,17 @@ const Offer = () => {
               </span>
             </h5>
 
-            <button className="inline-block w-full lg:w-3/6 rounded-md py-4 mt-8 text-sm font-bold tracking-widest text-white uppercase bg-violet-600 hover:bg-violet-700">
+            <button
+              onClick={() => {
+                Swal.fire({
+                  icon: "success",
+                  title: "Hurray !",
+                  text: "You got 20% off",
+                  footer: '<a href="">about discount?</a>',
+                });
+              }}
+              className="inline-block w-full lg:w-3/6 rounded-md py-4 mt-8 text-sm font-bold tracking-widest text-white uppercase bg-violet-600 hover:bg-violet-700"
+            >
               Get Discount
             </button>
 
