@@ -14,7 +14,7 @@ import Social from "../Shared/Social/Social";
 const SignUp = () => {
   const [currentUser, loading] = useAuthState(auth);
   const [sendEmailVerification, sending] = useSendEmailVerification(auth);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   const [error, setError] = useState("");
   let navigate = useNavigate();
   let location = useLocation();
@@ -22,7 +22,7 @@ const SignUp = () => {
   if (loading || sending) {
     return <Loading></Loading>;
   }
-  if (currentUser) {
+  if (user) {
     navigate(from, { replace: true });
   }
   const handelSignUp = async (e) => {
