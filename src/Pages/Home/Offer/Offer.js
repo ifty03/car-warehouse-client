@@ -29,7 +29,7 @@ const Offer = () => {
                   icon: "success",
                   title: "Hurray !",
                   text: "You got 20% off",
-                  footer: '<a href="">about discount?</a>',
+                  footer: '<a href="">about our discount?</a>',
                 });
               }}
               className="inline-block w-full lg:w-3/6 rounded-md py-4 mt-8 text-sm font-bold tracking-widest text-white uppercase bg-violet-600 hover:bg-violet-700"
