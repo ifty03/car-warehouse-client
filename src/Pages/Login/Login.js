@@ -38,7 +38,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         /* for jwt */
-        fetch("https://stark-journey-45418.herokuapp.com/login", {
+        fetch("https://car-warehouse-server-production.up.railway.app/login", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify({ email }),

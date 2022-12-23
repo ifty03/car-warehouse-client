@@ -16,7 +16,7 @@ const Table = () => {
   const [update, setUpdate] = useState(false);
   useEffect(() => {
     fetch(
-      `https://stark-journey-45418.herokuapp.com/manageStoke?page=${page}&size=${size}`
+      `https://car-warehouse-server-production.up.railway.app/manageStoke?page=${page}&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -25,7 +25,7 @@ const Table = () => {
       });
   }, [page, size, update]);
   useEffect(() => {
-    fetch(`https://stark-journey-45418.herokuapp.com/stokesCount`)
+    fetch(`https://car-warehouse-server-production.up.railway.app/stokesCount`)
       .then((res) => res.json())
       .then(({ count }) => {
         const newCount = Math.ceil(count / size);
@@ -46,9 +46,12 @@ const Table = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://car-warehouse-server-production.up.railway.app/stoke/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setUpdate(!update);
@@ -58,7 +61,7 @@ const Table = () => {
     });
 
     // if (agree) {
-    //   fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
+    //   fetch(`https://car-warehouse-server-production.up.railway.app/stoke/${id}`, {
     //     method: "DELETE",
     //   })
     //     .then((res) => res.json())

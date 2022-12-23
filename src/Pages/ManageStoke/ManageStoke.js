@@ -16,9 +16,12 @@ const ManageStoke = ({ stoke, setUpdate, update }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`https://stark-journey-45418.herokuapp.com/stoke/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://car-warehouse-server-production.up.railway.app/stoke/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setUpdate(!update);

@@ -38,11 +38,14 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             /* for jwt */
-            fetch("https://stark-journey-45418.herokuapp.com/login", {
-              method: "POST",
-              headers: { "Content-type": "application/json" },
-              body: JSON.stringify({ email }),
-            })
+            fetch(
+              "https://car-warehouse-server-production.up.railway.app/login",
+              {
+                method: "POST",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify({ email }),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 localStorage.setItem("accessToken", data?.token);

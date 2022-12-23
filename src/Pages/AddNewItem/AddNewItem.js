@@ -18,7 +18,7 @@ const AddNewItem = () => {
     const stock = { name, price, quantity, supplier, email, description, img };
 
     /* set Item in user database */
-    fetch("https://stark-journey-45418.herokuapp.com/addStoke", {
+    fetch("https://car-warehouse-server-production.up.railway.app/addStoke", {
       method: "PUT",
       headers: {
         authorization: `${user?.email} ${localStorage.getItem("accessToken")}`,

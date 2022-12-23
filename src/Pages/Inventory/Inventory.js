@@ -12,7 +12,7 @@ const Inventory = () => {
     const quantity = parseInt(addStoke) + parseInt(stoke?.quantity);
     const newQuantity = { quantity };
     await fetch(
-      `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`,
+      `https://car-warehouse-server-production.up.railway.app/stoke/${inventoryId}`,
       {
         method: "PUT",
         headers: { "Content-type": "application/json" },
@@ -23,14 +23,18 @@ const Inventory = () => {
       .then((data) => toast.success("Stoke updated successfully"));
 
     /* update stoke in ui */
-    fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
+    fetch(
+      `https://car-warehouse-server-production.up.railway.app/stoke/${inventoryId}`
+    )
       .then((res) => res.json())
       .then((data) => setStoke(data));
   };
 
   /* load target data */
   useEffect(() => {
-    fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
+    fetch(
+      `https://car-warehouse-server-production.up.railway.app/stoke/${inventoryId}`
+    )
       .then((res) => res.json())
       .then((data) => setStoke(data));
   }, []);
@@ -42,7 +46,7 @@ const Inventory = () => {
 
       /* update stoke in database*/
       await fetch(
-        `https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`,
+        `https://car-warehouse-server-production.up.railway.app/stoke/${inventoryId}`,
         {
           method: "PUT",
           headers: { "Content-type": "application/json" },
@@ -53,7 +57,9 @@ const Inventory = () => {
         .then((data) => toast.success("Stoke updated successfully"));
 
       /* update stoke in ui */
-      fetch(`https://stark-journey-45418.herokuapp.com/stoke/${inventoryId}`)
+      fetch(
+        `https://car-warehouse-server-production.up.railway.app/stoke/${inventoryId}`
+      )
         .then((res) => res.json())
         .then((data) => setStoke(data));
     } else {

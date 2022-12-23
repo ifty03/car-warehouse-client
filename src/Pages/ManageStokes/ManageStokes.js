@@ -12,7 +12,7 @@ const ManageStokes = () => {
   const [update, setUpdate] = useState(false);
   useEffect(() => {
     fetch(
-      `https://stark-journey-45418.herokuapp.com/manageStoke?page=${page}&size=${size}`
+      `https://car-warehouse-server-production.up.railway.app/manageStoke?page=${page}&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -21,7 +21,7 @@ const ManageStokes = () => {
       });
   }, [page, size, update]);
   useEffect(() => {
-    fetch(`https://stark-journey-45418.herokuapp.com/stokesCount`)
+    fetch(`https://car-warehouse-server-production.up.railway.app/stokesCount`)
       .then((res) => res.json())
       .then(({ count }) => {
         const newCount = Math.ceil(count / size);

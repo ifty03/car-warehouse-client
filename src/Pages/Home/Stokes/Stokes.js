@@ -9,7 +9,7 @@ const Stokes = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://stark-journey-45418.herokuapp.com/stoke")
+    fetch("https://car-warehouse-server-production.up.railway.app/stoke")
       .then((res) => res.json())
       .then((data) => {
         setStokes(data);
